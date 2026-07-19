@@ -23,7 +23,7 @@ This project aims to answer the business questions above by:
 - Forecasting short-term demand by format to guide order quantities for the next restocking cycle
 
 ### Tools
-- **SQLite:** [Full SQL_pipeline](./beer_invenotry_pipeline.sql)
+- **SQLite:** [Full SQL_pipeline](beer_inventory_pipeline.sql)
 - **Tableau Public:** [Interactive beer inventory dashboard](https://public.tableau.com/app/profile/mongkon.thongchaithanawut5618/viz/BeerInventoryDashboard/BeerInventoryRestocking).
 
 ## Data Overview
