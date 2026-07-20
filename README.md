@@ -13,7 +13,7 @@ This is broken down into three sub-questions:
 - **Segment Performance:** Which packaging variants are trending upward or downward, and by what margin?
 - **Seasonality:** When do sales spike, and how much extra stock is needed ahead of those periods?
 - **Reorder point:** At what inventory level should the next order be placed, given average demand, its variability, and lead time?
-- **Forecast:** How many standard packs, by SKU, is the shop likely to have in the upcoming restocking cycle?e
+- **Forecast:** How many standard packs, by SKU, is the shop likely to have in the upcoming restocking cycle?
 
 ### Objectives
 This project aims to answer the business questions above by:
