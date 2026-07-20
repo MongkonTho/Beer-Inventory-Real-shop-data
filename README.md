@@ -45,14 +45,23 @@ This project uses raw POS transaction exports from the shop, covering 2022–202
 - Peaks align with Songkran (April) and Year End to New Year (December), indicating a predictable and recurring pattern rather than noise.
 
 ### Reoder point
+- Reorder *Bottle*12*,  *Can 490*12*, and *Can 320*24* at ~150, ~45, and ~20 std packs remaining, respectively
+- Bottle's much higher trigger point is driven by its higher sales volume, not by it being disproportionately unpredictable. All three SKUs show similar day-to-day variability relative to their own average demand (~70% coefficient of variation)
+
 ### Order forcast
 
-### Recommendations
+## Recommendations
 
-## SKU mix
+### SKU mix
 - Shift stock allocation toward cans, particularly Can490ml*12 given its +30.2% YoY growth. Please check whether current order volumes already reflect this trend or are lagging behind actual sell-through.
 - Gradually reduce bottle order volumes in proportion to its -8.0% YoY decline to avoid overstock.
 
-## Reorder point & forecast (to be added once analysis is complete)
-- Reorder trigger per format, based on average demand, demand variability, and supplier lead time
-- Recommended order quantity for the next restocking cycle, by format, based on the short-term forecast
+### Reorder point 
+- Set reorder triggers by SKU, based on a 3-day supplier lead time and 95% service level:
+    - **Bottle*12:** Reorder once stock falls to ~150 standard packs or below
+    - **Can 490*12:** Reorder once stock falls to ~45 standard packs or below
+    - **Can 320*24:** Reorder once stock falls to ~20 standard packs or below
+
+- These thresholds assume the lead time and demand variability observed over 2022–2024 hold going forward; if the supplier's delivery time changes, the triggers should be recalculated
+
+## forecast (to be added once analysis is complete)
