@@ -130,6 +130,8 @@ WHERE b.code = i.code AND b.item = i.item;
 -- product type for visualization.
 -- ------------------------------------------------------------
 
+CREATE TABLE beer_summary AS
+
 WITH parsed AS (
     SELECT
         DATE(
@@ -165,7 +167,38 @@ SELECT
     SUM(CASE WHEN member IS NOT NULL THEN qty * qty2 ELSE 0 END) / unit_pack AS mem_std_pack,
     SUM(CASE WHEN member IS NULL     THEN qty * qty2 ELSE 0 END) / unit_pack AS nonmem_std_pack
 FROM parsed
-GROUP BY ymd, item_type
-ORDER BY ymd, item_type;
+GROUP BY ymd, y, m, item_type
+ORDER BY ymd, item_type
 
--- Export result set to CSV for use in the Tableau dashboard.
+;
+
+-- Export the dataset to CSV for use in the Tableau dashboard.
+
+-- ---------------------------------------------------------------------------
+-- Create a table to use for reodering point based on this following folumlar;
+-- reodering point = (avg. daaily deman * lead time)+ safty stock
+-- When safty sotck = z *sd(daily demand)* sqrt(lead time)
+-- Here: lead time = 3, z = 1.65, sigma = sd 
+-- ---------------------------------------------------------------------------
+
+
+WITH mean_sd AS(
+	SElECT
+		item_type,
+		avg(std_pack) AS mean,
+		SQRT(AVG(std_pack * std_pack) - AVG(std_pack) * AVG(std_pack)) AS sd
+	
+	FROM beer_summary
+	GROUP BY item_type
+	)
+	
+	SELECT
+		item_type,
+		mean,
+		sd,
+		(mean * 3) + (1.65*sd*sqrt(3)) AS reorder		
+	FROM mean_sd
+	GROUP BY item_type;
+
+
+
