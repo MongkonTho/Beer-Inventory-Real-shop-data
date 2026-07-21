@@ -1,4 +1,4 @@
-# Beer Inventory Sale (2022-2024)
+# Retail Inventory Analytics: A POS-Based Restocking Strategy (2022-2024)
 A retail sales analysis for a family-owned convenience store, used to inform beer restocking decisions.
 
 ## Background and Overview
